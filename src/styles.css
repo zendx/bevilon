@@ -33,41 +33,75 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  --color-brand-red: var(--brand-red);
   --color-brand-blue: var(--brand-blue);
-  --color-brand-black: var(--brand-black);
-  --color-brand-white: var(--brand-white);
+  --color-brand-pink: var(--brand-pink);
+  --color-brand-ink: var(--brand-ink);
+  --color-brand-paper: var(--brand-paper);
+
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-hairline: var(--hairline);
 }
 
 :root {
-  --radius: 0.25rem;
+  --radius: 0.375rem;
 
-  /* Brand palette */
-  --brand-red: oklch(0.628 0.258 27);
-  --brand-blue: oklch(0.498 0.272 264);
-  --brand-black: oklch(0.08 0 0);
-  --brand-white: oklch(1 0 0);
+  /* Bevilon brand palette — matched to logo */
+  --brand-blue: oklch(0.38 0.09 250);      /* deep navy-blue from logo */
+  --brand-pink: oklch(0.62 0.22 6);        /* magenta/pink circle */
+  --brand-ink: oklch(0.18 0.02 250);       /* near-black w/ blue tint */
+  --brand-paper: oklch(0.985 0.003 250);   /* off-white */
 
-  /* Semantic — dark by default */
-  --background: oklch(0.08 0 0);
-  --foreground: oklch(1 0 0);
-  --card: oklch(0.08 0 0);
-  --card-foreground: oklch(1 0 0);
-  --popover: oklch(0.08 0 0);
-  --popover-foreground: oklch(1 0 0);
-  --primary: oklch(0.498 0.272 264);
+  /* LIGHT (default) */
+  --background: oklch(0.985 0.003 250);
+  --foreground: oklch(0.18 0.02 250);
+  --surface: oklch(1 0 0);
+  --surface-2: oklch(0.96 0.005 250);
+  --hairline: oklch(0.18 0.02 250 / 12%);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.02 250);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.02 250);
+  --primary: oklch(0.38 0.09 250);
   --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.16 0 0);
-  --secondary-foreground: oklch(1 0 0);
-  --muted: oklch(0.16 0 0);
-  --muted-foreground: oklch(0.65 0 0);
-  --accent: oklch(0.628 0.258 27);
+  --secondary: oklch(0.96 0.005 250);
+  --secondary-foreground: oklch(0.18 0.02 250);
+  --muted: oklch(0.96 0.005 250);
+  --muted-foreground: oklch(0.45 0.02 250);
+  --accent: oklch(0.62 0.22 6);
   --accent-foreground: oklch(1 0 0);
-  --destructive: oklch(0.628 0.258 27);
+  --destructive: oklch(0.62 0.22 6);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.18 0.02 250 / 12%);
+  --input: oklch(0.18 0.02 250 / 18%);
+  --ring: oklch(0.38 0.09 250);
+}
+
+.dark {
+  --background: oklch(0.13 0.015 250);
+  --foreground: oklch(0.97 0.005 250);
+  --surface: oklch(0.17 0.018 250);
+  --surface-2: oklch(0.22 0.02 250);
+  --hairline: oklch(1 0 0 / 10%);
+
+  --card: oklch(0.17 0.018 250);
+  --card-foreground: oklch(0.97 0.005 250);
+  --popover: oklch(0.17 0.018 250);
+  --popover-foreground: oklch(0.97 0.005 250);
+  --primary: oklch(0.72 0.13 248);
+  --primary-foreground: oklch(0.13 0.015 250);
+  --secondary: oklch(0.22 0.02 250);
+  --secondary-foreground: oklch(0.97 0.005 250);
+  --muted: oklch(0.22 0.02 250);
+  --muted-foreground: oklch(0.68 0.015 250);
+  --accent: oklch(0.68 0.22 6);
+  --accent-foreground: oklch(1 0 0);
+  --destructive: oklch(0.68 0.22 6);
   --destructive-foreground: oklch(1 0 0);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.498 0.272 264);
+  --ring: oklch(0.72 0.13 248);
 }
 
 @layer base {
@@ -80,7 +114,7 @@
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
-  ::selection { background: var(--brand-red); color: var(--brand-white); }
+  ::selection { background: var(--brand-pink); color: white; }
 }
 
 @layer utilities {

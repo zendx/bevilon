@@ -14,23 +14,23 @@ type Slide = {
 const slides: Slide[] = [
   {
     tag: "Case Study 01",
-    sector: "Fintech Infrastructure",
-    title: (<>NEURAL<br /><span className="text-brand-blue">LEDGER</span></>),
-    body: "Architecting high-frequency trading systems for the next generation of decentralized finance protocols. Redefining latency boundaries.",
+    sector: "SaaS Platform",
+    title: (<>BUILT FOR<br /><span className="text-[oklch(0.72_0.13_248)]">SCALE</span></>),
+    body: "A multi-tenant SaaS rebuilt on Next.js and edge infrastructure — shipping features 4× faster and serving customers in 22 countries.",
     image: hero1,
   },
   {
     tag: "Case Study 02",
-    sector: "Aerospace Systems",
-    title: (<>ORBITAL<br /><span className="text-brand-red">FRAMEWORK</span></>),
-    body: "Mission-critical control surfaces and telemetry pipelines deployed across a constellation of low-earth observation satellites.",
+    sector: "E-Commerce",
+    title: (<>COMMERCE,<br /><span className="text-brand-pink">REIMAGINED</span></>),
+    body: "Headless storefronts engineered for conversion. Sub-second page loads, frictionless checkout, and a CMS your team actually enjoys.",
     image: hero2,
   },
   {
     tag: "Case Study 03",
-    sector: "Industrial Robotics",
-    title: (<>KINETIC<br /><span className="text-brand-blue">PROTOCOL</span></>),
-    body: "Firmware-to-cloud integration suite powering autonomous fleets across precision manufacturing floors at sub-millisecond cadence.",
+    sector: "Brand Experience",
+    title: (<>WEBSITES THAT<br /><span className="text-[oklch(0.72_0.13_248)]">PERFORM</span></>),
+    body: "Strategy, design, and engineering under one roof. Award-winning brand sites built to rank, convert, and last.",
     image: hero3,
   },
 ];
@@ -49,8 +49,7 @@ export function HeroSlider() {
   const s = slides[i];
 
   return (
-    <section className="relative h-screen w-full overflow-hidden flex items-center">
-      {/* Background slides */}
+    <section className="relative h-screen w-full overflow-hidden flex items-center bg-brand-ink text-white">
       {slides.map((slide, idx) => (
         <div
           key={idx}
@@ -64,20 +63,19 @@ export function HeroSlider() {
             className={`w-full h-full object-cover ${idx === i ? "animate-ken-burns" : ""}`}
             key={`${idx}-${i === idx}`}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/40 to-brand-black/20" />
-          <div className="absolute inset-0 bg-gradient-to-r from-brand-black/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-brand-ink via-brand-ink/60 to-brand-ink/30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-brand-ink/70 to-transparent" />
         </div>
       ))}
 
-      {/* Content */}
       <div className="relative z-10 container mx-auto px-6 md:px-8 flex flex-col justify-end pb-28 md:pb-32 h-full">
         <div key={i} className="animate-hero-in">
           <div className="flex items-center gap-4 mb-6 flex-wrap">
-            <span className="px-3 py-1 border border-brand-red text-brand-red text-[10px] font-bold uppercase tracking-widest">
+            <span className="px-3 py-1 border border-brand-pink text-brand-pink text-[10px] font-bold uppercase tracking-widest">
               {s.tag}
             </span>
             <div className="h-px w-16 md:w-24 bg-white/20" />
-            <span className="text-white/60 text-xs font-medium uppercase tracking-widest">
+            <span className="text-white/70 text-xs font-medium uppercase tracking-widest">
               {s.sector}
             </span>
           </div>
@@ -87,21 +85,21 @@ export function HeroSlider() {
           </h1>
 
           <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-start md:items-end">
-            <p className="max-w-md text-white/60 text-base md:text-lg leading-relaxed">
+            <p className="max-w-md text-white/70 text-base md:text-lg leading-relaxed">
               {s.body}
             </p>
             <div className="flex gap-2 md:pb-2">
               <button
                 onClick={prev}
                 aria-label="Previous slide"
-                className="size-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-brand-black transition-all cursor-pointer"
+                className="size-12 rounded-full border border-white/30 flex items-center justify-center hover:bg-white hover:text-brand-ink transition-all cursor-pointer"
               >
                 ←
               </button>
               <button
                 onClick={next}
                 aria-label="Next slide"
-                className="size-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-brand-black transition-all cursor-pointer"
+                className="size-12 rounded-full border border-white/30 flex items-center justify-center hover:bg-white hover:text-brand-ink transition-all cursor-pointer"
               >
                 →
               </button>
@@ -110,19 +108,15 @@ export function HeroSlider() {
         </div>
       </div>
 
-      {/* Progress indicator */}
       <div className="absolute right-6 md:right-8 bottom-32 hidden sm:flex flex-col gap-4 items-center z-10">
-        <span className="text-[10px] text-white/40 font-mono tracking-widest">
+        <span className="text-[10px] text-white/50 font-mono tracking-widest">
           {String(i + 1).padStart(2, "0")} / {String(n).padStart(2, "0")}
         </span>
-        <div className="w-px h-32 bg-white/10 relative overflow-hidden">
+        <div className="w-px h-32 bg-white/15 relative overflow-hidden">
           <div
             key={i}
-            className="absolute top-0 left-0 w-full bg-brand-red origin-top"
-            style={{
-              height: "100%",
-              animation: "slide-progress 6s linear forwards",
-            }}
+            className="absolute top-0 left-0 w-full bg-brand-pink origin-top"
+            style={{ height: "100%", animation: "slide-progress 6s linear forwards" }}
           />
         </div>
       </div>
